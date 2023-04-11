@@ -11,22 +11,28 @@
 
   <header class="flex flex-row justify-between p-4">
     <div id="left-items">
-      <div id="logo" class="text-[#50A791]">
-        Tickethack
+      <div id="logo">
+        <a href="" class="text-[#50A791] font-bold">Tickethack</a>
       </div>
     </div>
     <div id="right-items" class="w-80 flex flex-row justify-around">
-      <div id="cart">Cart</div>
-      <div id="bookings">Bookings</div>
+
+      <div id="cart">
+        <a href="">Cart</a>
+      </div>
+      <div id="bookings">
+        <a href="">bookings</a>
+      </div>
+      </div>
     </div>
   </header>
 
   <div id="banner" class="bg-cover bg-center" style="background-image: url(/images/background.jpg)">
 
-    <div class="text-white text-center text-2xl font-semibold p-6">Explore the world effortlessly by train!</div>
-    <div class="text-white text-center p-6">Compare, book and enjoy cheap prices for train tickets: your journey starts on tickethack</div>
+    <div class="text-white text-center text-3xl font-semibold p-6">Explore the world effortlessly by train!</div>
+    <div class="text-white text-center text-xl p-6">Compare, book and enjoy cheap prices for train tickets: your journey starts on tickethack</div>
 
-    <div id="search-trip" class="h-screen w-full flex flex-row justify-center items-start">
+    <div id="search-trip" class="h-screen w-full flex flex-row justify-evenly items-start">
 
       <div id="searchDiv" class="container w-80 h-80 bg-white flex flex-col justify-around items-center rounded-lg">
         <div id="departure">
@@ -39,7 +45,7 @@
           <input type="date" id="trip-date" name="date" value="2023-04-11">
         </div>
         <div id="button">
-          <button id="search-btn">Search</button>
+          <button id="search-btn" class="w-64 h-10 bg-[#50A791] text-white rounded">Search</button>
         </div>
       </div>
 
@@ -47,7 +53,7 @@
         <div id="train-img">
           <img src="/images/train.png" alt="Train" class="h-24 w-24">
         </div>
-        <div id="hook" class="border-[#50A791] border-solid border-t-2">
+        <div id="hook" class=" h-1/4 border-[#50A791] border-solid border-t-2 p-8">
           <p>it's time to book your future trip.</p>
         </div>
       </div>
