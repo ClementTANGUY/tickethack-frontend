@@ -4,9 +4,48 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>TicketTack</title>
 </head>
 <body>
+
+  <header class="flex flex-row justify-around">
+    <div id="logo">
+      TICKETHACK
+    </div>
+    <div id="cart">Cart</div>
+    <div id="bookings">Bookings</div>
+  </header>
+
+  <div id="banner" class="bg-cover" style="background-image: url(/images/background.jpg)">
+
+    <div class="text-white text-center">Explore the world effortlessly by train!</div>
+    <div class="text-white text-center">Compare, book and enjoy cheap prices for train tickets: your journey starts on tickethack</div>
+
+    <div id="search-trip" class="h-screen w-screen flex flex-row justify-evenly items-center">
+      <div class="searchDiv container w-80 h-80 bg-white flex flex-col justify-evenly text-center rounded-lg">
+        <div id="departure">
+          <input class="cityNameInput" type="text" placeholder="Departure" />
+        </div>
+        <div id="arrival">
+          <input class="cityNameInput" type="text" placeholder="Arrival" />
+        </div>
+        <div id="date">
+          <input type="date" id="trip-date" name="date" value="2023-04-11">
+        </div>
+        <div id="button">
+          <button id="search-btn">Search</button>
+        </div>
+      </div>
+
+      <div class="resultDiv w-80 h-80 bg-white rounded-lg">
+        <img src="/images/train.png" alt="Train">
+        <p>it's time to book your future trip.</p>
+      </div>
+      </div>
+
+    </div>
+
   <script src="script.js"></script>
 </body>
 </html>
