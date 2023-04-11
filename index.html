@@ -9,26 +9,31 @@
 </head>
 <body>
 
-  <header class="flex flex-row justify-around">
-    <div id="logo">
-      TICKETHACK
+  <header class="flex flex-row justify-between p-4">
+    <div id="left-items">
+      <div id="logo" class="text-[#50A791]">
+        Tickethack
+      </div>
     </div>
-    <div id="cart">Cart</div>
-    <div id="bookings">Bookings</div>
+    <div id="right-items" class="w-80 flex flex-row justify-around">
+      <div id="cart">Cart</div>
+      <div id="bookings">Bookings</div>
+    </div>
   </header>
 
-  <div id="banner" class="bg-cover" style="background-image: url(/images/background.jpg)">
+  <div id="banner" class="bg-cover bg-center" style="background-image: url(/images/background.jpg)">
 
-    <div class="text-white text-center">Explore the world effortlessly by train!</div>
-    <div class="text-white text-center">Compare, book and enjoy cheap prices for train tickets: your journey starts on tickethack</div>
+    <div class="text-white text-center text-2xl font-semibold p-6">Explore the world effortlessly by train!</div>
+    <div class="text-white text-center p-6">Compare, book and enjoy cheap prices for train tickets: your journey starts on tickethack</div>
 
-    <div id="search-trip" class="h-screen w-screen flex flex-row justify-evenly items-center">
-      <div class="searchDiv container w-80 h-80 bg-white flex flex-col justify-evenly text-center rounded-lg">
+    <div id="search-trip" class="h-screen w-full flex flex-row justify-center items-start">
+
+      <div id="searchDiv" class="container w-80 h-80 bg-white flex flex-col justify-around items-center rounded-lg">
         <div id="departure">
-          <input class="cityNameInput" type="text" placeholder="Departure" />
+          <input id="departureInput" type="text" placeholder="Departure"/>
         </div>
         <div id="arrival">
-          <input class="cityNameInput" type="text" placeholder="Arrival" />
+          <input id="arrivalInput" type="text" placeholder="Arrival"/>
         </div>
         <div id="date">
           <input type="date" id="trip-date" name="date" value="2023-04-11">
@@ -38,13 +43,17 @@
         </div>
       </div>
 
-      <div class="resultDiv w-80 h-80 bg-white rounded-lg">
-        <img src="/images/train.png" alt="Train">
-        <p>it's time to book your future trip.</p>
+      <div id="resultDiv" class="flex flex-col justify-around items-center w-80 h-80 bg-white rounded-lg">
+        <div id="train-img">
+          <img src="/images/train.png" alt="Train" class="h-24 w-24">
+        </div>
+        <div id="hook" class="border-[#50A791] border-solid border-t-2">
+          <p>it's time to book your future trip.</p>
+        </div>
       </div>
-      </div>
-
     </div>
+
+  </div>
 
   <script src="script.js"></script>
 </body>
