@@ -5,7 +5,6 @@ function addTocartEventListener() {
 			.then(response => response.json())
 			.then(data => {
 				if (data.result) {
-          window.location.assign('pageCart.html');
           const hours = new Date(data.trips[0].date).getUTCHours();
           const minutes = new Date(data.trips[0].date).getUTCMinutes();
           document.querySelector('#cart-container').innerHTML ='';
@@ -24,6 +23,7 @@ function addTocartEventListener() {
             <button class="deleteTrip w-10 h-6 bg-[#50A791] text-white text-xs font-bold rounded" id="${data.trips[0]._id}">X</button>
           </div>
           `
+        window.location.assign('pageCart.html');
 				}
 			});
 		});
