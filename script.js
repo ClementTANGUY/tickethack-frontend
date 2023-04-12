@@ -1,3 +1,35 @@
+function addTocartEventListener() {
+	for (let i = 0; i < document.querySelectorAll('.addToCart').length; i++) {
+		document.querySelectorAll('.addToCart')[i].addEventListener('click', function () {
+			fetch(`http://localhost:3000/trips/${this.id}`)
+			.then(response => response.json())
+			.then(data => {
+				if (data.result) {
+          window.location.assign('pageCart.html');
+          const hours = new Date(data.trips[0].date).getUTCHours();
+          const minutes = new Date(data.trips[0].date).getUTCMinutes();
+          document.querySelector('#cart-container').innerHTML ='';
+          document.querySelector('#cart-container').innerHTML +=`
+            <div class="text-center">My Cart</div>
+            <div class="flex flex-row justify-between items-center w-120 h-12 bg-[#F2F3F4] m-1">
+              <div class="text-xs">
+                ${data.trips[0].departure} > ${data.trips[0].arrival}
+            </div>
+            <div class="text-xs">
+              ${hours}:${minutes}
+            </div>
+            <div class="text-xs">
+              ${data.trips[0].price}€
+            </div>
+            <button class="deleteTrip w-10 h-6 bg-[#50A791] text-white text-xs font-bold rounded" id="${data.trips[0]._id}">X</button>
+          </div>
+          `
+				}
+			});
+		});
+	}
+}
+
 document.querySelector('#search-btn').addEventListener('click', function() {
    const departure = document.querySelector('#departureInput').value;
    const arrival = document.querySelector('#arrivalInput').value;
@@ -25,7 +57,7 @@ document.querySelector('#search-btn').addEventListener('click', function() {
               <div class="text-xs">
                 ${trip.price}€
               </div>
-              <button id="btn-cart" class="w-10 h-6 bg-[#50A791] text-white text-xs font-bold rounded">Book</button>
+              <button class="addToCart w-10 h-6 bg-[#50A791] text-white text-xs font-bold rounded" id="${trip._id}">Book</button>
             </div>
           `
         }
@@ -40,6 +72,7 @@ document.querySelector('#search-btn').addEventListener('click', function() {
         `
       }
     })
+    addTocartEventListener();
     document.querySelector('#departureInput').value ='';
     document.querySelector('#arrivalInput').value = '';
     document.querySelector('#trip-date').value ='';
