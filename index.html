@@ -12,16 +12,16 @@
   <header class="flex flex-row justify-between p-4">
     <div id="left-items">
       <div id="logo">
-        <a href="" class="text-[#50A791] font-bold">Tickethack</a>
+        <a href="#" class="text-[#50A791] text-2xl font-bold">Tickethack</a>
       </div>
     </div>
     <div id="right-items" class="w-80 flex flex-row justify-around">
 
       <div id="cart">
-        <a href="">Cart</a>
+        <a href="pageCart.html">Cart</a>
       </div>
       <div id="bookings">
-        <a href="">bookings</a>
+        <a href="bookings.html">Bookings</a>
       </div>
       </div>
     </div>
@@ -35,21 +35,20 @@
     <div id="search-trip" class="h-screen w-full flex flex-row justify-evenly items-start">
 
       <div id="searchDiv" class="container w-80 h-80 bg-white flex flex-col justify-around items-center rounded-lg">
-        <div id="departure">
-          <input id="departureInput" type="text" placeholder="Departure"/>
-        </div>
-        <div id="arrival">
-          <input id="arrivalInput" type="text" placeholder="Arrival"/>
+
+        <div id="destination" class="flex flex-col justify-center items-center">
+          <input id="departureInput" class="h-10 w-64 bg-[#F2F3F4] rounded no-underline" type="text" placeholder="Departure"/>
+          <input id="arrivalInput" class="h-10 w-64 bg-[#F2F3F4] rounded no-underline" type="text" placeholder="Arrival" />
         </div>
         <div id="date">
-          <input type="date" id="trip-date" name="date" value="2023-04-11">
+          <input type="date" id="trip-date" class="h-10 w-64 bg-[#F2F3F4] rounded no-underline" name="date" value="">
         </div>
         <div id="button">
           <button id="search-btn" class="w-64 h-10 bg-[#50A791] text-white rounded">Search</button>
         </div>
       </div>
 
-      <div id="resultDiv" class="flex flex-col justify-around items-center w-80 h-80 bg-white rounded-lg">
+      <div id="resultDiv" class="overflow-auto flex flex-col justify-around items-center w-80 h-80 bg-white rounded-lg">
         <div id="train-img">
           <img src="/images/train.png" alt="Train" class="h-24 w-24">
         </div>
