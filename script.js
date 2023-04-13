@@ -1,11 +1,11 @@
 function addTocartEventListener() {
   for (let i = 0; i < document.querySelectorAll(".addToCart").length; i++) {
     document.querySelectorAll(".addToCart")[i].addEventListener("click", function () {
-      const _id = this.id;
-        fetch(`http://localhost:3000/carts/`, {
+      const tripId = this.id;
+        fetch('http://localhost:3000/carts/', {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ _id }),
+          body: JSON.stringify({ tripId }),
         })
         .then((response) => response.json())
         .then((data) => {
@@ -13,8 +13,8 @@ function addTocartEventListener() {
             window.location.assign("pageCart.html");
           }
         });
-      });
-    }
+    });
+  }
 }
 
 document.querySelector("#search-btn").addEventListener("click", function () {
@@ -34,34 +34,32 @@ document.querySelector("#search-btn").addEventListener("click", function () {
           const hours = new Date(trip.date).getUTCHours();
           const minutes = new Date(trip.date).getUTCMinutes();
           document.querySelector("#resultDiv").innerHTML += `
-    <div class="flex flex-row justify-between items-center w-64 h-12 bg-[#F2F3F4] m-1">
-    <div class="text-xs">
-    ${trip.departure} > ${trip.arrival}
-    </div>
-    <div class="text-xs">
-    ${hours}:${minutes}
-    </div>
-    <div class="text-xs">
-    ${trip.price}€
-    </div>
-    <button class="addToCart w-10 h-6 bg-[#50A791] text-white text-xs font-bold rounded" id="${trip._id}">Book</button>
-    </div>
-    `;
+            <div class="flex flex-row justify-between items-center w-64 h-12 bg-[#F2F3F4] m-1">
+              <div class="text-xs">
+                ${trip.departure} > ${trip.arrival}
+              </div>
+              <div class="text-xs">
+                ${hours}:${minutes}
+              </div>
+              <div class="text-xs">
+                ${trip.price}€
+              </div>
+              <button class="addToCart w-10 h-6 bg-[#50A791] text-white text-xs font-bold rounded" id="${trip._id}">Book</button>
+            </div>
+          `
         }
-        console.log("ok");
         addTocartEventListener();
       } else {
         document.querySelector("#resultDiv").innerHTML = `
-    <div id="Not found img">
-    <img src="/images/notfound.png" alt="Train" class="h-24 w-24">
-    </div>
-    <div id="hook" class=" h-1/4 border-[#50A791] border-solid border-t-2 p-8">
-    <p>No Trip found</p>
-    </div>
-    `;
+        <div id="Not found img">
+          <img src="/images/notfound.png" alt="Train" class="h-24 w-24">
+        </div>
+        <div id="hook" class=" h-1/4 border-[#50A791] border-solid border-t-2 p-8">
+          <p>No Trip found</p>
+        </div>
+        `
       }
     });
-
   document.querySelector("#departureInput").value = "";
   document.querySelector("#arrivalInput").value = "";
   document.querySelector("#trip-date").value = "";
