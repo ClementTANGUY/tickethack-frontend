@@ -1,21 +1,20 @@
 function addTocartEventListener() {
   for (let i = 0; i < document.querySelectorAll(".addToCart").length; i++) {
-    document
-      .querySelectorAll(".addToCart")
-      [i].addEventListener("click", function () {
-        console.log("Hello There");
-        fetch(`http://localhost:3000/trips/${this.id}`),
-          {
-            method: "POST",
+    document.querySelectorAll(".addToCart")[i].addEventListener("click", function () {
+      const _id = this.id;
+        fetch(`http://localhost:3000/carts/`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ _id }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.result) {
+            window.location.assign("pageCart.html");
           }
-            .then((response) => response.json())
-            .then((data) => {
-              if (data.result) {
-                window.location.assign("pageCart.html");
-              }
-            });
+        });
       });
-  }
+    }
 }
 
 document.querySelector("#search-btn").addEventListener("click", function () {
