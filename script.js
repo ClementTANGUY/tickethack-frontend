@@ -1,4 +1,5 @@
-function addTocartEventListener() {
+// Function to add a trip in the cart
+function addTripTocartEventListener() {
   for (let i = 0; i < document.querySelectorAll(".addToCart").length; i++) {
     document.querySelectorAll(".addToCart")[i].addEventListener("click", function () {
       const tripId = this.id;
@@ -10,13 +11,14 @@ function addTocartEventListener() {
         .then((response) => response.json())
         .then((data) => {
           if (data.result) {
-            window.location.assign("pageCart.html");
+            window.location.assign("cart.html");
           }
         });
     });
   }
 }
 
+// Get all trips by departure, arrival & date
 document.querySelector("#search-btn").addEventListener("click", function () {
   const departure = document.querySelector("#departureInput").value;
   const arrival = document.querySelector("#arrivalInput").value;
@@ -48,7 +50,9 @@ document.querySelector("#search-btn").addEventListener("click", function () {
             </div>
           `
         }
-        addTocartEventListener();
+        // Call the function to add a trip into the cart ⬆︎
+        addTripTocartEventListener();
+
       } else {
         document.querySelector("#resultDiv").innerHTML = `
         <div id="Not found img">
