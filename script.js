@@ -1,4 +1,4 @@
-// Function to add a trip in the cart
+// Call this function when add a trip in cart
 function addTripTocartEventListener() {
   for (let i = 0; i < document.querySelectorAll(".addToCart").length; i++) {
     document.querySelectorAll(".addToCart")[i].addEventListener("click", function () {
@@ -18,7 +18,7 @@ function addTripTocartEventListener() {
   }
 }
 
-// Get all trips by departure, arrival & date
+// Get all trips by  departure, arrival & date filled in input
 document.querySelector("#search-btn").addEventListener("click", function () {
   const departure = document.querySelector("#departureInput").value;
   const arrival = document.querySelector("#arrivalInput").value;
@@ -33,8 +33,10 @@ document.querySelector("#search-btn").addEventListener("click", function () {
       if (data.trips.length !== 0) {
         document.querySelector("#resultDiv").innerHTML = "";
         for (const trip of data.trips) {
-          const hours = new Date(trip.date).getUTCHours();
-          const minutes = new Date(trip.date).getUTCMinutes();
+          let hours = new Date(trip.date).getUTCHours();
+          hours < 10 ? hours = `0${hours}` : hours;
+          let minutes = new Date(trip.date).getUTCMinutes();
+          minutes < 10 ? minutes = `0${minutes}` : minutes;
           document.querySelector("#resultDiv").innerHTML += `
             <div class="flex flex-row justify-between items-center w-64 h-12 bg-[#F2F3F4] m-1">
               <div class="text-xs">

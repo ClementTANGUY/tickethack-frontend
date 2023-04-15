@@ -10,13 +10,14 @@
 <body>
 
   <header class="flex flex-row justify-between p-4">
+
     <div id="left-items">
       <div id="logo">
         <a href="#" class="text-[#50A791] text-2xl font-bold">Tickethack</a>
       </div>
     </div>
-    <div id="right-items" class="w-80 flex flex-row justify-around">
 
+    <div id="right-items" class="w-80 flex flex-row justify-around">
       <div id="cart">
         <a href="cart.html">Cart</a>
       </div>
@@ -25,6 +26,7 @@
       </div>
       </div>
     </div>
+
   </header>
 
   <div id="banner" class="bg-cover bg-center" style="background-image: url(/images/background.jpg)">
@@ -37,11 +39,11 @@
       <div id="searchDiv" class="container w-80 h-80 bg-white flex flex-col justify-around items-center rounded-lg">
 
         <div id="destination" class="flex flex-col justify-center items-center">
-          <input id="departureInput" class="h-10 w-64 bg-[#F2F3F4] rounded no-underline" type="text" placeholder="Departure"/>
-          <input id="arrivalInput" class="h-10 w-64 bg-[#F2F3F4] rounded no-underline" type="text" placeholder="Arrival" />
+          <input id="departureInput" class="h-10 w-64 bg-[#F2F3F4] rounded outline-none" type="text" placeholder="Departure"/>
+          <input id="arrivalInput" class="h-10 w-64 bg-[#F2F3F4] rounded outline-none" type="text" placeholder="Arrival" />
         </div>
         <div id="date">
-          <input type="date" id="trip-date" class="h-10 w-64 bg-[#F2F3F4] rounded no-underline" name="date" value="">
+          <input type="date" id="trip-date" class="h-10 w-64 bg-[#F2F3F4] rounded outline-none" name="date" value="">
         </div>
         <div id="button">
           <button id="search-btn" class="w-64 h-10 bg-[#50A791] text-white rounded">Search</button>
@@ -49,6 +51,7 @@
       </div>
 
       <div id="resultDiv" class="overflow-auto flex flex-col justify-around items-center w-80 h-80 bg-white rounded-lg">
+
         <div id="train-img">
           <img src="/images/train.png" alt="Train" class="h-24 w-24">
         </div>
@@ -56,6 +59,7 @@
           <p>it's time to book your future trip.</p>
         </div>
       </div>
+
     </div>
 
   </div>
