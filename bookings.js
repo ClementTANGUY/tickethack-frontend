@@ -20,6 +20,9 @@ fetch('http://localhost:3000/bookings/')
           hours < 10 ? hours = `0${hours}` : hours;
           let minutes = new Date(trip.date).getUTCMinutes();
           minutes < 10 ? minutes = `0${minutes}` : minutes;
+          const now = new Date();
+          let delay = new Date(trip.date) - now;
+          delay = Math.round(Math.abs(delay)/36e5);
           document.querySelector('#bookings-container').innerHTML +=`
             <div class="flex flex-row justify-around items-center w-9/12 h-12 bg-[#F2F3F4] m-0">
               <div class="text-xs">
@@ -32,10 +35,10 @@ fetch('http://localhost:3000/bookings/')
                 ${trip.price}€
               </div>
               <div class="text-xs">
-                Departure in
+                Departure in ${delay} hours
               </div>
             </div>
-            <hr class="w-64 text-grey">
+            <hr class="w-64">
             <div class="text-[#50A791]">
               Enjoy your travels with Tickethack!
             </div>
