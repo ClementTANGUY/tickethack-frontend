@@ -15,35 +15,38 @@ fetch('http://localhost:3000/bookings/')
         document.querySelector('#bookings-container').innerHTML += `
         <div class="text-center">My bookings</div>
         `
-        for (const trip of data.booking[0].trips) {
-          let hours = new Date(trip.date).getUTCHours();
-          hours < 10 ? hours = `0${hours}` : hours;
-          let minutes = new Date(trip.date).getUTCMinutes();
-          minutes < 10 ? minutes = `0${minutes}` : minutes;
-          const now = new Date();
-          let delay = new Date(trip.date) - now;
-          delay = Math.round(Math.abs(delay)/36e5);
-          document.querySelector('#bookings-container').innerHTML +=`
-            <div class="flex flex-row justify-around items-center w-9/12 h-12 bg-[#F2F3F4] m-0">
-              <div class="text-xs">
-                ${trip.departure} > ${trip.arrival}
+        for (const booking of data.booking) {
+          for (const trip of booking.trips) {
+            let hours = new Date(trip.date).getUTCHours();
+            hours < 10 ? hours = `0${hours}` : hours;
+            let minutes = new Date(trip.date).getUTCMinutes();
+            minutes < 10 ? minutes = `0${minutes}` : minutes;
+            const now = new Date();
+            let deadline = new Date(trip.date) - now;
+            deadline = Math.round(Math.abs(deadline)/36e5);
+            document.querySelector('#bookings-container').innerHTML +=`
+              <div class="flex flex-row justify-around items-center w-9/12 h-12 bg-[#F2F3F4] m-0">
+                <div class="text-xs">
+                  ${trip.departure} > ${trip.arrival}
+                </div>
+                <div class="text-xs">
+                  ${hours}:${minutes}
+                </div>
+                <div class="text-xs">
+                  ${trip.price}€
+                </div>
+                <div class="text-xs">
+                  Departure in ${deadline} hours
+                </div>
               </div>
-              <div class="text-xs">
-                ${hours}:${minutes}
-              </div>
-              <div class="text-xs">
-                ${trip.price}€
-              </div>
-              <div class="text-xs">
-                Departure in ${delay} hours
-              </div>
-            </div>
-            <hr class="w-64">
-            <div class="text-[#50A791]">
-              Enjoy your travels with Tickethack!
-            </div>
-          `
+            `
+          }
         }
+        document.querySelector('#bookings-container').innerHTML +=`
+          <div class="text-[#50A791] w-80 h-12 text-center border-t-2 p-2 m-2">
+            Enjoy your travels with Tickethack!
+          </div>
+        `
       }
     }
   }
