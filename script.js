@@ -17,6 +17,8 @@ function addTripTocartEventListener() {
     });
   }
 }
+// Set the minimum value of departure to today
+document.querySelector("#trip-date").min = new Date().toISOString().split("T")[0];
 
 // Get all trips by  departure, arrival & date filled in input
 document.querySelector("#search-btn").addEventListener("click", function () {

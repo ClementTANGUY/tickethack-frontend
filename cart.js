@@ -1,4 +1,4 @@
-//Get all trips in cart when the page is loaded
+// Get all trips in cart when the page is loaded
 fetch('http://localhost:3000/carts/')
 .then(response => response.json())
 .then(data => {
@@ -49,7 +49,7 @@ fetch('http://localhost:3000/carts/')
     }
     // Call the function to delete a trip into the cart ⬇︎
     deleteTripOfcartEventListener();
-    // Call the function to proceed with the purchase of the cart ⬇︎
+    // Call the function to proceed with the purchase of the whole cart ⬇︎
     purchaseCartEventListener()
   }
 )
@@ -70,6 +70,7 @@ function deleteTripOfcartEventListener() {
   }
 }
 
+// function called when purchasing the whole cart
 function purchaseCartEventListener() {
   document.querySelector("#purchase").addEventListener("click", function () {
     fetch('http://localhost:3000/bookings/', {
@@ -81,7 +82,7 @@ function purchaseCartEventListener() {
           window.location.assign("bookings.html");
         }
       });
-    });
-  }
+  });
+}
 
 
